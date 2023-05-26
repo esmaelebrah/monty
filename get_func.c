@@ -49,8 +49,8 @@ void (*get_func(char **parsed))(stack_t **, unsigned int)
  */
 void push_handler(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
-	int num = 0, i;
+	stack_t *new_node;
+	int number = 0, i;
 
 	if (data.words[1] == NULL)
 	{
@@ -68,13 +68,13 @@ void push_handler(stack_t **stack, unsigned int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
-	num = atoi(data.words[1]);
+	number = atoi(data.words[1]);
 
 	if (data.qflag == 0)
-		new = add_dnodeint(stack, num);
+		new_node = add_dnodeint(stack, number);
 	else if (data.qflag == 1)
-		new = add_dnodeint_end(stack, num);
-	if (!new)
+		new_node = add_dnodeint_end(stack, number);
+	if (!new_node)
 	{
 		dprintf(STDERR_FILENO, MALLOC_FAIL);
 		free_all(1);

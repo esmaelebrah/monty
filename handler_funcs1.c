@@ -47,7 +47,7 @@ void pop_handler(stack_t **stack, unsigned int line_number)
 void swap_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack, *node = NULL;
-	int num;
+	int number;
 
 	if (dlistint_len(*stack) < 2)
 	{
@@ -57,9 +57,9 @@ void swap_handler(stack_t **stack, unsigned int line_number)
 	}
 
 	temp = get_dnodeint_at_index(*stack, 0);
-	num = temp->n;
+	number = temp->n;
 	delete_dnodeint_at_index(stack, 0);
-	node = insert_dnodeint_at_index(stack, 1, num);
+	node = insert_dnodeint_at_index(stack, 1, number);
 	if (!node)
 	{
 		dprintf(STDERR_FILENO, MALLOC_FAIL);
