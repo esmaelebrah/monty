@@ -8,18 +8,18 @@
  */
 size_t dlistint_len(const dlistint_t *h)
 {
-	size_t nodes = 0;
+	size_t num_nodes = 0;
 
 	if (!h)
 		return (0);
 
 	while (h)
 	{
-		nodes++;
+		num_nodes++;
 		h = h->next;
 	}
 
-	return (nodes);
+	return (num_nodes);
 }
 
 /**
@@ -31,26 +31,26 @@ size_t dlistint_len(const dlistint_t *h)
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-	dlistint_t *new;
+	dlistint_t *new_node;
 
 	if (!head)
 		return (NULL);
 
-	new = malloc(sizeof(dlistint_t));
-	if (!new)
+	new_node = malloc(sizeof(dlistint_t));
+	if (!new_node)
 		return (NULL);
 
-	new->n = n;
+	new_node->n = n;
 
-	new->next = *head;
-	new->prev = NULL;
+	new_node->next = *head;
+	new_node->prev = NULL;
 
 	if (*head)
-		(*head)->prev = new;
+		(*head)->prev = new_node;
 
-	*head = new;
+	*head = new_node;
 
-	return (new);
+	return (new_node);
 }
 
 /**
@@ -61,7 +61,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
  */
 size_t print_dlistint(const dlistint_t *h)
 {
-	size_t nodes = 0;
+	size_t num_nodes = 0;
 
 	if (!h)
 		return (0);
@@ -70,10 +70,10 @@ size_t print_dlistint(const dlistint_t *h)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
-		nodes++;
+		num_nodes++;
 	}
 
-	return (nodes);
+	return (num_nodes);
 }
 
 /**
